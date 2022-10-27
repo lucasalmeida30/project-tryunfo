@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Form.css';
 
 class Form extends React.Component {
   render() {
@@ -90,7 +91,7 @@ class Form extends React.Component {
           />
         </label>
         <button
-          disabled={ isSaveButtonDisabled }
+          disabled={ !isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
           type="button"
           data-testid="save-button"

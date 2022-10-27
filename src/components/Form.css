@@ -1,19 +1,18 @@
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border: 1px solid rgb(42, 42, 42);
-    width: 30%;
-    height: 80%;
+/* form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(42, 42, 42);
+  height: 80%;
+  width: 30%;
 }
 
 input, textarea, select {
-    height: 20px;
-    width: 200px;
-    margin-left: 5px;
+  height: 20px;
+  width: 200px;
+  margin-left: 5px;
 }
 
 label {
-    margin-left: 20px;
+  margin-left: 20px;
 }
-
+ */

@@ -16,6 +16,7 @@ class Card extends React.Component {
         <h4 data-testid="rare-card">{ cardRare }</h4>
         {
           cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''
+
         }
       </div>
     );

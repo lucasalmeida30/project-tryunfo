@@ -92,7 +92,8 @@ class Form extends React.Component {
                   type="checkbox"
                   data-testid="trunfo-input"
                 />
-              </label>)
+              </label>
+            )
         }
 
         <button

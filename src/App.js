@@ -77,6 +77,15 @@ class App extends React.Component {
     });
   };
 
+  exibitionList = () => {
+    const { arrayCard } = this.state;
+    console.log(arrayCard);
+    const listCards = (arrayCard.map((card, index) => (
+      <li key={ index }><Card { ...card } /></li>
+    )));
+    return listCards;
+  };
+
   render() {
     return (
       <div>
@@ -87,6 +96,10 @@ class App extends React.Component {
           { ...this.state }
         />
         <Card { ...this.state } />
+        {
+          this.exibitionList()
+
+        }
       </div>
     );
   }

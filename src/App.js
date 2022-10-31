@@ -18,6 +18,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     arrayCard: [],
+    // isDeleteButton: false,
   };
 
   onInputChange = ({ target }) => {
@@ -73,20 +74,38 @@ class App extends React.Component {
         cardRare: 'normal',
         cardTrunfo: false,
         hasTrunfo: cardTrunfo ? true : '',
+        isDeleteButton: true,
       });
     });
   };
 
-  exibitionList = () => {
+  // exibitionList = () => {
+  //   const { arrayCard } = this.state;
+  //   const listCards = (arrayCard.map((card, index) => (
+  //     <Card key={ index } buttonDelete={ this.buttonDelete } { ...card } />
+  //   )));
+  //   return listCards;
+  // };
+
+  buttonDelete = ({ target }) => {
+    const { name } = target;
     const { arrayCard } = this.state;
-    console.log(arrayCard);
-    const listCards = (arrayCard.map((card, index) => (
-      <li key={ index }><Card { ...card } /></li>
-    )));
-    return listCards;
+    const teste = arrayCard.filter((card) => card.cardName !== name);
+    this.setState(({
+      arrayCard: teste,
+    }));
+    arrayCard.forEach((element) => {
+      if (element.cardTrunfo) {
+        this.setState(({
+          hasTrunfo: false,
+        }));
+      }
+    });
   };
 
   render() {
+    const { arrayCard, isDeleteButton, cardName, cardDescription,
+      cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
     return (
       <div>
         <h1>Tryunfo </h1>
@@ -95,11 +114,28 @@ class App extends React.Component {
           onSaveButtonClick={ this.onSaveButtonClick }
           { ...this.state }
         />
-        <Card { ...this.state } />
-        {
-          this.exibitionList()
-
-        }
+        <Card
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+        />
+        <div>
+          {
+            arrayCard.map((card, index) => (
+              <Card
+                key={ index }
+                buttonDelete={ this.buttonDelete }
+                { ...card }
+                isDeleteButton={ isDeleteButton }
+              />
+            ))
+          }
+        </div>
       </div>
     );
   }
